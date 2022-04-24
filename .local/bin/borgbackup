@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# this file is for manually running a backup.
+# It is also done daily via systemd borgmatic.timer
+
+LOGFILE="${HOME}/Documents/manual_borglogs.log"
+# export BORG_PASSPHRASE="cat $HOME/Documents/.borgpassphrase"
+
+borgmatic --verbosity 1 --syslog-verbosity 1 -c /home/maw/.config/borgmatic/config.yaml
+# sudo borgmatic --verbosity 1 --files -c /home/maw/.config/borgmatic/config.yaml --log-file $LOGFILE

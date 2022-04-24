@@ -50,3 +50,28 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+
+################## own scripts:	###########################
+# extData related
+alias mntExtData='sudo cryptsetup luksOpen /dev/disk/by-uuid/63b8095e-b0b1-423b-ac7d-ec13e77c7eae extData && sudo mount /dev/mapper/extData /mnt/extData'
+alias umntExtData='sudo umount /mnt/extData && sudo cryptsetup luksClose /dev/mapper/extData'
+alias backupHomedir='rsync -av --delete "$HOME" "/mnt/extData/Daten/SK-Homedir/" >> "$HOME/Documents/Zu_Sichern/Log_BackupHomeDir/HomeToExtData_LOG-`date +%Y-%m-%d-%X`" 2>&1'
+alias backupExtDataToExtDataBackup1='rsync -av --delete  "/mnt/extData/Daten/" "/mnt/extDataBackup1/Daten" >> "$HOME/Documents/Zu_Sichern/Log_Backup_ExtData-to-ExtDataBackup1/Log_Backup_ExtData-to-ExtDataBackup1-`date +%Y-%m-%d-%X`" 2>&1'
+
+
+alias mntExtDataBackup1='/home/maw/.local/bin/mountExtDataBackup1.sh'
+alias umntExtDataBackup1='/home/maw/.local/bin/unmountExtDataBackup1.sh'
+
+alias mntExtVid='/home/maw/.local/bin/mountExtVid.sh'
+alias umntExtVid='/home/maw/.local/bin/unmountExtVid.sh'
+
+alias mntExtMixedBackup1='/home/maw/.local/bin/mountExtMixedBackup1.sh'
+alias umntExtMixedBackup1='/home/maw/.local/bin/unmountExtMixedBackup1.sh'
+
+alias backupExtDataToMixedBackup1='rsync -av --delete  "/mnt/extData/Daten/" "/mnt/extMixedBackup1/extDataBackup/Daten" >> "$HOME/Documents/Zu_Sichern/Log_Backup_ExtData-to-ExtMixedBackup1/Log_Backup_ExtData-to-ExtMixedBackup1-`date +%Y-%m-%d-%X`" 2>&1'
+
+#Handy related
+alias handyBackupWA='adb pull /storage/self/primary/WhatsApp/Media/Whatsapp\ Images/'
+alias handyBackupCam='adb pull /storage/self/primary/DCIM/Camera/'
+alias handyBackupScreens='adb pull /storage/self/primary/Pictures/'
+alias handyBackupThreemaPics='adb pull /storage/self/primary/Threema Pictures/'

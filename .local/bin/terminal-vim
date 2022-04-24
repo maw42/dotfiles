@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# this script is needed to e.g. run claws edit-fields in terminal-vim
+
+st vim -f "$@"

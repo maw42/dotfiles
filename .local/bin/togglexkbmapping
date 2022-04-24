@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# toggle between us and de layout
+[ $(setxkbmap -query | grep layout | awk '{print $2}') = us ] && setxkbmap de || setxkbmap us
+
