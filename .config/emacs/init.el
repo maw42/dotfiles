@@ -47,7 +47,17 @@
 (setq org-journal-date-format "%Y-%m-%d")
 (setq org-journal-enable-agenda-integration t)
 (require 'org-journal)
+(defun org-journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  (unless (eq org-journal-file-type 'daily)
+    (org-narrow-to-subtree))
+  (goto-char (point-max)))
 
+(setq org-capture-templates '(("j" "Journal entry" plain (function org-journal-find-location)
+                               "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
+                               :jump-to-captured t :immediate-finish t)))
 ;; enable org-roam at startup and start caching (takes forever)
 ;;(org-roam-db-autosync-mode)
 
