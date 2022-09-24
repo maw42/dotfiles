@@ -11,7 +11,8 @@
      100)
     (set-frame-parameter nil 'alpha '(85 . 50))
       (set-frame-parameter nil 'alpha '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
+
+;; (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 ;; general package-cfg
 (require 'package)
@@ -44,18 +45,18 @@
 
 ;; org-templates
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+olp "~/Documents/pkm/foo.org" "capture:" "Tasks:")
+      '(("t" "Todo" entry (file+olp "~/Documents/org-pkm/gtd.org" "Capture:" "Tasks:")
          "* TODO %?\n  %i")
-	("n" "short note" entry (file+olp "~/Documents/pkm/foo.org" "capture:" )
+	("n" "short note" entry (file+olp "~/Documents/org-pkm/gtd.org" "Capture:" )
 	 "* NOTE %?\n")
-        ("m" "Meeting" entry (file+olp "~/Documents/pkm/foo.org" "capture:" "Meetings:")
-         (file "~/Documents/pkm/templates/tpl-meeting.org"))
+        ;; ("m" "Meeting" entry (file+olp "~/Documents/org-pkm/gtd.org" "capture:" "Meetings:")
+        ;;  (file "~/Documents/org-pkm/templates/tpl-meeting.org"))
 	("j" "Journal entry" plain (function org-journal-find-location)
                                "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
                                :jump-to-captured t :immediate-finish t)
 	)
 )
-(setq org-agenda-files (quote ("~/Documents/pkm/" "~/Documents/pkm/journals")))
+(setq org-agenda-files (quote ("~/Documents/org-pkm/" "~/Documents/org-pkm/journals/")))
 
 (setq org-hide-emphasis-markers t)
 
@@ -120,7 +121,10 @@
 ;; user-keys
 ;;
 
-(global-set-key "\C-c a" 'org-agenda)
+(global-set-key (kbd "\C-c a") 'org-agenda)
+(global-set-key (kbd "\C-c j n") 'org-journal-next-entry)
+(global-set-key (kbd "\C-c j p") 'org-journal-previous-entry)
+(global-set-key (kbd "\C-c j j") 'org-journal-new-entry)
 (global-set-key (kbd "<f6>") 'org-capture)
 
 ;;
@@ -132,6 +136,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   '("/home/maw/Documents/org-pkm/done.org" "/home/maw/Documents/org-pkm/gtd.org" "/home/maw/Documents/org-pkm/journals/2022-09-11"))
  '(org-log-done 'time)
  '(org-log-into-drawer t)
  '(org-log-reschedule 'note)
@@ -147,3 +153,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'narrow-to-region 'disabled nil)
