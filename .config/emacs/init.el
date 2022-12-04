@@ -137,7 +137,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("/home/maw/Documents/org-pkm/done.org" "/home/maw/Documents/org-pkm/gtd.org" "/home/maw/Documents/org-pkm/journals/2022-09-11"))
+   '("/home/maw/Documents/org-pkm/gtd.org" "/home/maw/Documents/org-pkm/done.org"))
  '(org-log-done 'time)
  '(org-log-into-drawer t)
  '(org-log-reschedule 'note)
@@ -145,7 +145,7 @@
  '(org-refile-use-outline-path t)
  '(org-roam-completion-everywhere t)
  '(package-selected-packages
-   '(evil magit org-journal spacemacs-theme zenburn-theme guide-key monokai-pro-theme selectrum-prescient selectrum org-roam))
+   '(lsp-ui lsp-mode evil magit org-journal spacemacs-theme zenburn-theme guide-key monokai-pro-theme selectrum-prescient selectrum org-roam))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

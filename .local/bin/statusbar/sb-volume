@@ -13,9 +13,9 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-[ $(pamixer --get-mute) = true ] && echo 🔇 && exit
+[ $(amixer -q sget Master | grep dB | awk '{print $6}' | tr -d '[]') = "off" ] && echo 🔇 && exit
 
-vol="$(pamixer --get-volume)"
+vol="$(amixer sget Master | grep dB | awk '{print $4}' | tr -d '[%]')"
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"

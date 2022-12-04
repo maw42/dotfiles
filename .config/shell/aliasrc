@@ -77,4 +77,4 @@ alias handyBackupScreens='adb pull /storage/self/primary/Pictures/'
 alias handyBackupThreemaPics='adb pull /storage/self/primary/Threema Pictures/'
 
 #git related
-alias gpa='git add * && git commit -m "Add Stuff" && git push'
+alias gacp='git add * && git commit -m "Add Stuff" && git push'
