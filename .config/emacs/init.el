@@ -26,6 +26,13 @@
 ;; set directory for org-mode attachments
 (setq org-attach-id-dir "~/Documents/org-pkm/assets")
 
+;; org-download configs
+(require 'org-download)
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+(setq-default org-download-image-dir 'org-attach-id-dir)
+(setq-default org-download-heading-lvl nil)
+
 (use-package org-roam
 	     :ensure t
 	     :init
