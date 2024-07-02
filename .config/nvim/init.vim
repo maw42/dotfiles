@@ -10,6 +10,7 @@
 	endif
 
 	call plug#begin('~/.config/nvim/plugged')
+	Plug 'crusoexia/vim-monokai'
 	Plug 'tpope/vim-surround'
 	Plug 'scrooloose/nerdtree'
 	Plug 'junegunn/goyo.vim'
